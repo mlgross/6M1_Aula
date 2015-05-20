@@ -19,7 +19,6 @@ public class ProdutoDAO implements Serializable {
     private List<Produto> listarTodos;
 
     public ProdutoDAO() {
-
     }
 
     public void persistir(Produto objeto) throws Exception {
