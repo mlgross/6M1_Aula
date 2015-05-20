@@ -15,7 +15,7 @@ import org.junit.Test;
 
 /**
  *
- * @author Marcelo Luis Gross
+ * @author Marcelo
  */
 public class TesteInserirVendaItens {
 

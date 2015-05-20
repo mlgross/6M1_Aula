@@ -6,8 +6,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author Jorge Luis Boeira Bavaresco
- * jorge.bavaresco@passofundo.ifsul.edu.br
+ * @author Marcelo
  */
 public class Util {
     

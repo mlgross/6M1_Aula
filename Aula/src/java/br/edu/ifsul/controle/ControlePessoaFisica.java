@@ -14,7 +14,7 @@ import javax.faces.bean.ViewScoped;
 
 /**
  *
- * @author Jorge Luis Boeira Bavaresco jorge.bavaresco@passofundo.ifsul.edu.br
+ * @author Marcelo
  */
 @ManagedBean(name = "controlePessoaFisica")
 @ViewScoped

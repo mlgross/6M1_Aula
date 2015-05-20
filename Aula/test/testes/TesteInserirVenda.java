@@ -2,7 +2,7 @@ package testes;
 
 /**
  *
- * @author Marcelo Luis Gross
+ * @author Marcelo
  */
 public class TesteInserirVenda {
     

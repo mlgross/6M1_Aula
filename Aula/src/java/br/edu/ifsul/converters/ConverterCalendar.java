@@ -15,7 +15,7 @@ import javax.faces.convert.FacesConverter;
 
 /**
  *
- * @author Jorge Luis Boeira Bavaresco jorge.bavaresco@passofundo.ifsul.edu.br
+ * @author Marcelo
  */
 @FacesConverter(value = "converterCalendar")
 public class ConverterCalendar implements Converter{

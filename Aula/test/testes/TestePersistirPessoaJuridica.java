@@ -14,7 +14,7 @@ import org.junit.Test;
 
 /**
  *
- * @author jorge
+ * @author Marcelo
  */
 public class TestePersistirPessoaJuridica {
 

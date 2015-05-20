@@ -12,8 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Jorge Luis Boeira Bavaresco
- * jorge.bavaresco@passofundo.ifsul.edu.br
+ * @author Marcelo
  */
 @FacesConverter(value = "converterMarca")
 public class ConverterMarca implements Serializable, Converter {

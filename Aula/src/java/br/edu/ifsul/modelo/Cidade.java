@@ -16,7 +16,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
- * @author Jorge Luis Boeira Bavaresco jorge.bavaresco@passofundo.ifsul.edu.br
+ * @author Marcelo
  */
 @Entity
 public class Cidade implements Serializable {

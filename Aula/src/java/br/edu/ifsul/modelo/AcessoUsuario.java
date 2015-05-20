@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
- * @author Marcelo Luis Gross
+ * @author Marcelo
  */
 @Entity
 @Table(name = "acessousuario")
