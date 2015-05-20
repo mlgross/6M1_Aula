@@ -1,4 +1,3 @@
-
 package br.edu.ifsul.converters;
 
 import br.edu.ifsul.modelo.Cidade;

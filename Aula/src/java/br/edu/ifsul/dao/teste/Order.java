@@ -1,10 +1,18 @@
-package br.edu.ifsul.dao;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.edu.ifsul.dao.teste;
 
 import java.io.Serializable;
 
+
 /**
- *
- * @author Marcelo
+ * @author Jorge Luis Boeira Bavaresco jlbavaresco@gmail.com
+ * @since 2014
+ * @version 1.0
+ * @see https://github.com/jlbavaresco/
  */
 public class Order implements Serializable {
 

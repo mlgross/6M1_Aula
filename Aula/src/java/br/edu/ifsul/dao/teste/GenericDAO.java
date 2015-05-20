@@ -1,4 +1,9 @@
-package br.edu.ifsul.dao;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.edu.ifsul.dao.teste;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,13 +14,15 @@ import javax.persistence.PersistenceContext;
 
 
 /**
- *
- * @author Marcelo
+ * @author Jorge Luis Boeira Bavaresco jlbavaresco@gmail.com
+ * @since 2014
+ * @version 1.0
+ * @see https://github.com/jlbavaresco/
  */
 public class GenericDAO<T> implements Serializable {
 
     private Class persistentClass;
-    @PersistenceContext(unitName = "Financeiro6M1PU")
+    @PersistenceContext(unitName = "EducacionalEJB6M1PU")
     private EntityManager em;
     private String filter = "";
     private String customFilter;
@@ -45,6 +52,12 @@ public class GenericDAO<T> implements Serializable {
         em.remove(objeto);
     }
 
+    /**
+     * Metodo que retorna um objeto
+     *
+     * @param id - Identificados do objeto Long
+     * @return Objeto do banco
+     */
     public T getObjectById(Integer id) throws Exception {
         try {
             return (T) em.find(persistentClass, id);
@@ -62,23 +75,23 @@ public class GenericDAO<T> implements Serializable {
         ejbql.append(persistentClass.getSimpleName());
         StringBuilder filtroTemp = new StringBuilder("");
         //tratar o filtro da consulta
-        // verifica filtro manual       
+        // verifico se tem algum filtro manual       
         if ((customFilter != null) && (customFilter.length() > 0)) {
-            // sql injection
-            customFilter = removeCharacters(customFilter, "'");
+            // prevenindo sql injection
+            customFilter = removeCaracteres(customFilter, "'");
             ejbql.append(" ");
             ejbql.append(customFilter);
             ejbql.append(" ");
             filtroTemp.append(" ");
             filtroTemp.append(customFilter);
             filtroTemp.append(" ");
-        } else //no filter  
+        } else //nao tendo uso o filtro do controle       
         if ((filter != null) && (filter.length() > 0)) {
-            // sql injection
-            filter = removeCharacters(filter, "'");
+            // prevenindo sql injection
+            filter = removeCaracteres(filter, "'");
             switch (currentOrder.getOperator()) {
                 case "=":
-                    // Enter id no digit
+                    // tratamento para caso digitem com id selecionado algo que não é numero não gerar exceção
                     if (currentOrder.getAttribute().equals("id")) {
                         try {
                             Integer i = Integer.parseInt(filter);
@@ -107,21 +120,21 @@ public class GenericDAO<T> implements Serializable {
             ejbql.append(" order by ");
             ejbql.append(currentOrder.getAttribute());
         }
-        // count obj
+        // calcula o total de objetos da lista fazendo uma consulta trazendo somente o id para ficar rápido
         StringBuilder ejbqlTemp = new StringBuilder("select id from ");
         ejbqlTemp.append(persistentClass.getSimpleName());
         ejbqlTemp.append(filtroTemp.toString());
         // System.out.println("ejbqlTemp: "+ejbqlTemp);
         totalObjects = em.createQuery(ejbqlTemp.toString()).getResultList().size();
-        // max obj = 0 
+        // testo se maximo objetos = 0 trago todos os registros
         if (maxObjects == 0) {
             maxObjects = totalObjects;
         }
-        // rs < 1 page 
+        // se o resultado não é maior que uma pagina coloca a navegação na primeira pagina novamente
         if (totalObjects <= maxObjects){
             position = 0;
         }
-        //rs paged
+        //retorna uma consulta paginada   
         return em.createQuery(ejbql.toString()).
                 setMaxResults(maxObjects).
                 setFirstResult(position).
@@ -200,7 +213,7 @@ public class GenericDAO<T> implements Serializable {
      * @param caracteres a serem removidos
      * @return String sem os caracteres
      */
-    public static String removeCharacters(String texto, String caracteres) {
+    public static String removeCaracteres(String texto, String caracteres) {
         String str = texto;
         StringBuilder caracteresTemp = new StringBuilder("[");
         caracteresTemp.append(caracteres);

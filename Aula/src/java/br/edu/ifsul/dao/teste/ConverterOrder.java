@@ -1,4 +1,9 @@
-package br.edu.ifsul.dao;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.edu.ifsul.dao.teste;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,8 +12,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 
 /**
- *
- * @author Marcelo
+ * @author Jorge Luis Boeira Bavaresco jlbavaresco@gmail.com
+ * @since 2014
+ * @version 1.0
+ * @see https://github.com/jlbavaresco/
  */
 public class ConverterOrder implements Serializable, Converter {
 
